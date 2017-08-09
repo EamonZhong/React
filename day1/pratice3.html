@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<div id="app"></div>
+	<script src="src/react.js" type="text/javascript" charset="utf-8"></script>
+	<script src="src/react-dom.js" type="text/javascript" charset="utf-8"></script>
+	<script src="src/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/babel">
+		var App = React.createClass({
+			getInitialState:function(){
+				return{
+					num:100,
+					arr:[]
+				}
+			},
+			fn:function(){
+				var numT =this.state.num;
+				numT +=200;
+				this.setState({
+					num:numT,
+					arr:['你','觉得','会了','吗']
+				});
+			},
+			render:function(){
+				return(
+					<div>
+						<button onClick={this.fn}>按钮</button>
+						<p>你好!世界!</p>
+						<span>{this.state.num}</span>
+						<ul>
+							{
+								this.state.arr.map(function(e,i){
+									return <li key={i}>{e}</li>
+								})
+							}
+						</ul>
+					</div>
+				)
+			}
+		})
+		ReactDOM.render(<App />,document.getElementById('app'));
+	</script>
+	</body>
+</html>
