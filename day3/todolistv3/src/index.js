@@ -16,6 +16,11 @@ class App extends Component{
       hash:'#/all'
     }
   }
+  componentDidMount(){
+    this.setState({
+      data:getItem('data')
+    });
+  }
   //切换checked
   PchangeChecked = (id) => {
     let {data} = this.state;
